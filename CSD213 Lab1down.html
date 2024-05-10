@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+    
+        #sampleTable {
+          border: 6px solid black;
+          
+        }
+        #sampleTable td {
+          padding: 15px;
+        }
+        input[type="button"] {
+          background-color: rgb(119, 0, 128); 
+          border: none;
+          color: white;
+          padding: 20px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 1px 1px;
+          cursor: pointer;
+        }
+        input[type="button"]:hover {
+          background-color: rgb(87, 0, 128); 
+        }
+
+        #message {
+            font-style: oblique;
+            color: blueviolet;
+        }
+      </style>
+    
+</head>
+
+<body>
+<table id="sampleTable" border="1"> 
+  <tr>
+    <td>Row1 Col1</td> 
+    <td>Row1 Col2</td>
+  </tr> 
+  <tr>
+    <td>Row2 Col1</td> 
+    <td>Row2 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row3 Col1</td> 
+    <td>Row3 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row4 Col1</td> 
+    <td>Row4 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row5 Col1</td> 
+    <td>Row5 Col2</td>
+  </tr> 
+</table> 
+<br> 
+<div>
+<input type="button" onclick="insertRowBottom()" value="Insert row">  
+<input type="button" onclick="deleteRowTop()" value="delete row">  
+</div>
+
+<div id="message"> </div>
+
+
+
+
+<script>
+
+var x=5;// row will start from 5 onwards
+
+function insertRowBottom(){
+
+
+
+  var tbl= document.getElementById("sampleTable");
+
+  x++;
+
+  var rw = tbl.insertRow(-1);
+  var tablecell1 = rw.insertCell(0);
+  var tablecell2 = rw.insertCell(1);
+  tablecell1.innerHTML = "Row "+x+" Col 1 ";
+  tablecell2.innerHTML = "Row "+x+"  Col 2";
+  document.getElementById("message").innerHTML =" ";
+
+  
+
+
+}
+
+function deleteRowTop() {
+ var tbl= document.getElementById("sampleTable");
+ y=tbl.rows.length
+ if (y > 0){
+    tbl.deleteRow(0);
+    document.getElementById("message").innerHTML =" ";
+ } else {
+    document.getElementById("message").innerHTML = " No more rows to delete ";
+ }
+
+  }
+
+
+  
+
+
+</script>
+</body>
+</html>
